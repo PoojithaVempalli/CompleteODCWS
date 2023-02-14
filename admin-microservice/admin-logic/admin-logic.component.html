@@ -1,0 +1,48 @@
+<div class="background">
+  <mat-toolbar class="navbar">
+    <div class="logo-setting">
+        <button (click)="_toggleSidebar()">
+         <span><mat-icon class="menu">menu</mat-icon></span>
+        </button>
+        <a routerLink=""><img src="../../../assets/adminlogo.png" alt="logo" class="logo">
+             <span>Admin Portal</span>
+        </a>
+    </div>
+    <div>
+        <span>
+            <button mat-mini-fab color="primary">
+              <a routerLink="/admin/">
+                <mat-icon>home</mat-icon>
+              </a>
+            </button>
+        </span>
+        <span>
+            <button mat-mini-fab color="primary">
+              <a routerLink="/admin/login">
+              <mat-icon>login</mat-icon></a>
+            </button>
+        </span>
+    </div>
+    </mat-toolbar>
+    <ng-sidebar-container>
+      <ng-sidebar [(opened)]="_opened">
+        <button (click)="_toggleSidebar()"><mat-icon>close</mat-icon></button>
+        <div class="side-nav">
+           <a routerLink="/admin"><p>Dashboard</p></a>
+           <a routerLink="/admin/addpack"><p>Add Pack</p></a>
+           <a routerLink="/admin/addrating"><p>Add Rating</p></a>
+           <a routerLink="/admin/addwasher"><p>Add Washer</p></a>
+           <a routerLink="/admin/alladmins"><p>View Admins</p></a>
+           <a routerLink="/admin/allwashers"><p>View Washers </p></a>
+           <a routerLink="/admin/allpacks"><p>View Packs</p></a>
+           <a routerLink="/admin/allratings"><p>View Ratings </p></a>
+            <a routerLink="/admin/login" (click)="logout()"><p>Log Out</p></a>
+        </div>
+
+      </ng-sidebar>
+      <div ng-sidebar-content>
+      <router-outlet></router-outlet>
+      </div>
+    </ng-sidebar-container>
+</div>
+

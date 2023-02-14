@@ -1,0 +1,61 @@
+   <!-- {{message}} -->
+<html lang="en">
+  <head>
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+      <!--Stylesheet-->
+      <style media="screen">
+        *,
+  *:before,
+  *:after{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+  }
+      </style>
+  </head>
+  <body>
+      <div class="background">
+          <div class="shape"></div>
+          <div class="shape"></div>
+      </div>
+      <form [formGroup]="packForm" >
+
+        <h3>Add New WashPack Here</h3>
+        
+        
+          
+          <label for="id"><span> Enter Id </span>
+            <input type="number" formControlName="id"  placeholder="id" [(ngModel)]="pack.id">
+            </label>
+            <div *ngIf="packForm.controls['id'].invalid && packForm.controls['id'].touched" class="alert alert-danger">
+              <div *ngIf="packForm.controls['id'].errors">
+              Pack ID is mandatory
+            </div>
+            </div>
+      
+          
+          <label for="name"><span> Enter Name of pack </span>
+            <input type="text" formControlName="name" placeholder="pack name" [(ngModel)]="pack.name">
+            </label>
+            <div *ngIf="packForm.controls['name'].invalid && packForm.controls['name'].touched" class="alert alert-danger">
+              <div *ngIf="packForm.controls['name'].errors">
+              Name is required.
+            </div>
+            </div>
+        
+          <label for="cost"><span> Enter Cost </span>
+            <input type="number" formControlName="cost" placeholder="pack cost" [(ngModel)]="pack.cost">
+          </label>
+      
+        
+          <label for="description"><span> Enter description </span>
+            <input type="text" formControlName="description" placeholder="pack description" [(ngModel)]="pack.description">
+          </label>
+
+        <button class="mat-button mat-success" (click)="placePack()" [disabled]="packForm.invalid">Send Pack</button>
+      </form>
+  </body>
+  </html>
+  

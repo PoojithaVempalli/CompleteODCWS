@@ -1,0 +1,64 @@
+
+<!-- {{message}} -->
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen">
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+    </style>
+</head>
+<body>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+    
+    <form [formGroup]="washerForm" >
+
+      <h3>Add New Washer Here</h3>
+      
+        <label for="id"><span> Enter Id </span>
+          <input type="number" formControlName="id"  [(ngModel)]="washer.id">
+          </label>
+      
+       
+        <label for="name"><span> Enter Name of washer </span>
+          <input type="text" placeholder = "Name" formControlName="name"  [(ngModel)]="washer.name">
+          </label>
+      <div *ngIf="washerForm.controls['name'].invalid && washerForm.controls['name'].touched" class="alert alert-danger">
+        <div *ngIf="washerForm.controls['name'].errors">
+        Name is required.
+      </div>
+      </div>
+    
+        <label for="password"><span> Enter password </span>
+          <input type="password" placeholder = "Password" formControlName="password" [(ngModel)]="washer.password">
+        </label>
+      <div *ngIf="washerForm.controls['password'].invalid && (washerForm.controls['password'].dirty || washerForm.controls['password'].touched)" class="alert alert-danger">
+        <div *ngIf="washerForm.controls['password'].errors">
+         Password must be more than 5 letters.
+      </div>
+      </div>
+    
+        <label for="location"><span> Enter location </span>
+          <input type="text" placeholder = "location" formControlName="location" [(ngModel)]="washer.location">
+        </label>
+
+    <div *ngIf="washerForm.controls['location'].invalid && (washerForm.controls['location'].dirty || washerForm.controls['location'].touched)" class="alert alert-danger">
+      <div *ngIf="washerForm.controls['location'].errors">
+      Please enter location
+    </div>
+    </div>
+      <button class="mat-button mat-success" (click)="confirm()" [disabled]="washerForm.invalid">Send Washer</button>
+    </form>
+</body>
+</html>

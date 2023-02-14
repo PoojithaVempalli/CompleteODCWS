@@ -1,0 +1,21 @@
+
+<div class = "container">
+    <div class = "text">
+        <h2>All Admins</h2>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let admin of admins">
+                <td><span>{{admin.id}}</span></td>
+                <td><span>{{admin.name}}</span></td>
+                <td><button mat-button color="warn" (click)="delete(admin.id)">DELETE</button></td>
+            </tr>          
+        </tbody>
+    </table>
+</div>

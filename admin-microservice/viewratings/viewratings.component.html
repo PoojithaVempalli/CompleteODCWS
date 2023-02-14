@@ -1,0 +1,25 @@
+
+<div class = "container">
+    <div class = "text">
+        <h2>All Ratings</h2></div>
+        <br>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>washerName</th>
+                <th>rating</th>
+                <th>comment</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let rating of ratings">
+                <td><span>{{rating.id}}</span></td>
+                <td><span>{{rating.washerName}}</span></td>
+                <td><span>{{rating.rating}}</span></td>
+                <td><span>{{rating.comment}}</span></td>
+                <td><button mat-button color="warn" (click)="delete(rating.id)">DELETE</button></td>
+            </tr>          
+        </tbody>
+    </table>
+</div>

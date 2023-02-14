@@ -1,0 +1,23 @@
+<div class = "container">
+    <div class = "text">
+    <h2>All Washers</h2></div>
+    <br>
+    <br>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>location</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let washer of washers">
+                <td><span>{{washer.id}}</span></td>
+                <td><span>{{washer.name}}</span></td>
+                <td><span>{{washer.location}}</span></td>
+                <td><button mat-button color="warn" (click)="delete(washer.id)">DELETE</button></td>
+            </tr>          
+        </tbody>
+    </table>
+</div>
