@@ -1,0 +1,21 @@
+<h2>All Available WashPacks</h2>
+<div class = "container">
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>cost</th>
+                <th>description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let packs of Washpacks">
+                <td><span>{{packs.id}}</span></td>
+                <td><span>{{packs.name}}</span></td>
+                <td><span>{{packs.cost}}</span></td>
+                <td><span>{{packs.description}}</span></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

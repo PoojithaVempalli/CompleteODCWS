@@ -1,0 +1,31 @@
+
+<form [formGroup]="ratingForm" >
+
+    <h3>Add New Rating Here</h3>
+   
+      
+      <label for="id"><span> Enter Id</span>
+        <input type="number" placeholder="id" formControlName="id"  [(ngModel)]="rating.id">
+        </label>
+    
+      
+      <label for="washerName"><span> Enter Name of Washer </span>
+        <input type="text" placeholder="washer name" formControlName="washerName"  [(ngModel)]="rating.washerName">
+        </label>
+        <div *ngIf="ratingForm.controls['washerName'].invalid && ratingForm.controls['washerName'].touched" class="alert alert-danger">
+          <div *ngIf="ratingForm.controls['washerName'].errors">
+          Name is required.
+        </div>
+        </div>
+   
+      <label for="rating"><span> Enter Rating </span>
+        <input type="number" placeholder="rating" formControlName="rating" [(ngModel)]="rating.rating">
+      </label>
+   
+      <label for="comment"><span> Enter comment </span>
+        <input type="text" placeholder="comment" formControlName="comment" [(ngModel)]="rating.comment">
+      </label>
+  
+    <button class="mat-button mat-success" (click)="confirm()" [disabled]="ratingForm.invalid">Send Rating</button>
+  </form>
+  

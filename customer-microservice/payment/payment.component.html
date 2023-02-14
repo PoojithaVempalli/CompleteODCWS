@@ -1,0 +1,34 @@
+
+     
+
+      <mat-card class="card" *ngFor="let order of orders">
+        <mat-card-subtitle>{{order.date}}</mat-card-subtitle>
+        <mat-card-subtitle>{{order.userId}}</mat-card-subtitle>
+        <mat-card-subtitle>{{order.orderId}}</mat-card-subtitle>
+        <mat-card-title>{{order.carName}}</mat-card-title>
+        <mat-card-content>
+
+          
+          <p>Total Cost : {{order.cost}} rupees </p>
+          
+          
+        </mat-card-content>
+        <div *ngIf="order.washerName">
+          <mat-divider inset ></mat-divider>
+          <br>
+        <p>Washer Name : {{(order.washerName)}}</p>
+        <mat-divider inset></mat-divider>
+        </div>
+        <div *ngIf="!order.washerName">
+          <mat-divider inset ></mat-divider>
+          <br>
+        <p>Pending...</p>
+        <mat-divider inset></mat-divider>
+        </div>
+
+        <mat-card-actions>
+          <button *ngIf="order.orderStatus === 'Pending...'" mat-button color="warn" (click)="makepayment(order)">Make Payment</button>
+          <button *ngIf="order.orderStatus === 'success'" mat-button color="warn" >Payment Done</button>
+        </mat-card-actions>
+        
+      </mat-card>
