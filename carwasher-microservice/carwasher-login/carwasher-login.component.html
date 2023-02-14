@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <style media="screen" >
+      *,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+    </style>
+</head>
+<body>
+  <div class="background">
+      <div class="shape"></div>
+      <div class="shape"></div>
+  </div>
+<form [formGroup]="LoginForm" >
+  <h3> Washer Login</h3>
+  <br>
+    <label for="name"><span> User Name </span> <input type="username" placeholder = "Name" formControlName="name"
+      [(ngModel)]="username">
+      </label>
+  
+  <div *ngIf="LoginForm.controls['name'].invalid && LoginForm.controls['name'].touched" class="alert alert-danger">
+    <div *ngIf="LoginForm.controls['name'].errors">
+    Name is required.
+  </div>
+  </div>
+  
+    <label for="passsword"><span> Enter password </span><input type="password" placeholder="Password" formControlName="password"
+      [(ngModel)]="password">
+      </label>
+  
+  <div *ngIf="LoginForm.controls['password'].invalid && (LoginForm.controls['password'].dirty || LoginForm.controls['password'].touched)" class="alert alert-danger">
+    <div *ngIf="LoginForm.controls['password'].errors">
+     Password must be more than 5 letters.
+  </div>
+  </div>
+
+  <button type="submit" [disabled]="LoginForm.invalid" (click)="login()">Login</button><p>
+    <br>
+  <h4><p>New User? <a routerLink="/carwasher/registration">Sign Up Now</a> </p></h4>
+</form>
+</body>
+</html>
